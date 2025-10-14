@@ -3,10 +3,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    ports:
-      - "${WUZAPI_PORT:-8080}:8080"
+
     environment:
-      - WUZAPI_ADMIN_TOKEN=${WUZAPI_ADMIN_TOKEN}
+      - WUZAPI_ADMIN_TOKEN=1234ASDF
       - DB_USER=${DB_USER:-wuzapi}
       - DB_PASSWORD=${DB_PASSWORD:-wuzapi}
       - DB_NAME=${DB_NAME:-wuzapi}
@@ -33,8 +32,7 @@ services:
       POSTGRES_USER: ${DB_USER:-wuzapi}
       POSTGRES_PASSWORD: ${DB_PASSWORD:-wuzapi}
       POSTGRES_DB: ${DB_NAME:-wuzapi}
-    # ports:
-    #   - "${DB_PORT:-5432}:5432" # Uncomment to access the database directly from your host machine.
+
     volumes:
       - db_data:/var/lib/postgresql/data
     networks:
@@ -52,9 +50,7 @@ services:
       RABBITMQ_DEFAULT_USER: wuzapi
       RABBITMQ_DEFAULT_PASS: wuzapi
       RABBITMQ_DEFAULT_VHOST: /
-    ports:
-      - "5672:5672" # AMQP port
-      - "15672:15672" # Management UI port
+ 
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq
     networks:
