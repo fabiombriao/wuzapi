@@ -11,12 +11,12 @@ services:
       - DB_PASSWORD=${DB_PASSWORD:-wuzapi}
       - DB_NAME=${DB_NAME:-wuzapi}
       - DB_HOST=db
-      - DB_PORT=${DB_PORT:-5432}
+      - DB_PORT=${DB_PORT:-5433}
       - TZ=${TZ:-America/Sao_Paulo}
       - WEBHOOK_FORMAT=${WEBHOOK_FORMAT:-json}
       - SESSION_DEVICE_NAME=${SESSION_DEVICE_NAME:-WuzAPI}
       # RabbitMQ configuration Optional
-      - RABBITMQ_URL=amqp://wuzapi:wuzapi@rabbitmq:5672/
+      - RABBITMQ_URL=amqp://wuzapi:wuzapi@rabbitmq:5673/
       - RABBITMQ_QUEUE=whatsapp_events
     depends_on:
       db:
